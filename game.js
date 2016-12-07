@@ -5,11 +5,12 @@ function randomNumber(min,max){
 var gc = 0;
 var ghostText = document.getElementById("gc");
 
-var health = 25;
+var health = 50;
 var hText = document.getElementById("health");
 
 var start = Date.now();
 var timeText = document.getElementById("time");
+var healthText = document.getElementById("end");
 
 document.addEventListener("keydown", function(r){
   var h = document.getElementById("h");
@@ -87,10 +88,9 @@ document.addEventListener("keydown", function(r){
     }
     else if(health == 0){
       document.getElementById("screen").pauseAnimations()
-      timeText.textContent ="You died !";
 
       document.getElementById("box").setAttribute("fill-opacity", "1");
-      document.getElementById("time").setAttribute("fill-opacity", "1");
+      document.getElementById("end").setAttribute("fill-opacity", "1");
       document.getElementById("health").setAttribute("fill-opacity", "0");
     }
 
@@ -115,16 +115,8 @@ document.addEventListener("keydown", function(r){
       var newPy = randomNumber(40,500);
       p.setAttribute("x", newPx);
       p.setAttribute("y", newPy);
-      health = health + 4;
+      health = health + 6;
     }
-    }
-
-    if(health == 0){
-      document.getElementById("screen").pauseAnimations()
-      timeText.textContent ="You died !";
-
-      document.getElementById("box").setAttribute("fill-opacity", "1");
-      document.getElementById("time").setAttribute("fill-opacity", "1");
     }
 
   hText.textContent ="HEALTH: " + health;
