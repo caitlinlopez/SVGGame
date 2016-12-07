@@ -68,7 +68,7 @@ document.addEventListener("keydown", function(r){
       var newPy = randomNumber(40,500);
       p.setAttribute("x", newPx);
       p.setAttribute("y", newPy);
-      health = health + 4;
+      health = health + 11;
       console.log("hello")
     }
     }
@@ -103,7 +103,46 @@ document.addEventListener("keydown", function(r){
   var positionX = Number(h.getAttribute("x"));
   var positionY = Number(h.getAttribute("y"));
 
+  var g = document.getElementById("gg");
+  var ghostX = Number(g.getAttribute("x"));
+  var ghostY = Number(g.getAttribute("y"));
+  var ghostWidth = 60;
+  var ghostHeight = 60;
+
   var p = document.getElementById("pp");
+  var foodX = Number(p.getAttribute("x"));
+  var foodY = Number(p.getAttribute("y"));
+  var foodWidth = 42;
+  var foodHeight = 60;
+
+  if (positionX > ghostX && positionX < ghostX + ghostWidth){
+    if(positionY > ghostY && positionY < ghostY + ghostHeight){
+      var newP = randomNumber(40,810);
+      g.setAttribute("x", newP);
+      g.setAttribute("y", 0);
+      gc += 1;
+    }
+    }
+
+  if (positionX > foodX && positionX < foodX + foodWidth){
+    if(positionY > foodY && positionY < foodY + foodHeight){
+      var newPx = randomNumber(40,810);
+      var newPy = randomNumber(40,500);
+      p.setAttribute("x", newPx);
+      p.setAttribute("y", newPy);
+      health = health + 11;
+    }
+    }
+
+  hText.textContent ="HEALTH: " + health;
+});
+
+document.addEventListener("keydown", function(r){
+  var h = document.getElementById("h");
+  var positionX = Number(h.getAttribute("x"));
+  var positionY = Number(h.getAttribute("y"));
+
+  var p = document.getElementById("ppp");
   var foodX = Number(p.getAttribute("x"));
   var foodY = Number(p.getAttribute("y"));
   var foodWidth = 42;
@@ -115,7 +154,31 @@ document.addEventListener("keydown", function(r){
       var newPy = randomNumber(40,500);
       p.setAttribute("x", newPx);
       p.setAttribute("y", newPy);
-      health = health + 6;
+      health = health + 11;
+    }
+    }
+
+  hText.textContent ="HEALTH: " + health;
+});
+
+document.addEventListener("keydown", function(r){
+  var h = document.getElementById("h");
+  var positionX = Number(h.getAttribute("x"));
+  var positionY = Number(h.getAttribute("y"));
+
+  var p = document.getElementById("pppp");
+  var foodX = Number(p.getAttribute("x"));
+  var foodY = Number(p.getAttribute("y"));
+  var foodWidth = 42;
+  var foodHeight = 60;
+
+  if (positionX > foodX && positionX < foodX + foodWidth){
+    if(positionY > foodY && positionY < foodY + foodHeight){
+      var newPx = randomNumber(40,810);
+      var newPy = randomNumber(40,500);
+      p.setAttribute("x", newPx);
+      p.setAttribute("y", newPy);
+      health = health + 11;
     }
     }
 
